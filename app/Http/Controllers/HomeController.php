@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $location = 'New York';
+        /*$location = 'New York';
 
         $queryString = http_build_query([
           'access_key' => '92148faafe9093cec9c22987653f9910',
@@ -39,6 +39,7 @@ class HomeController extends Controller
         
         $api_result = json_decode($json, true);
 
-        return view('home', compact('api_result'));
+        return view('home', compact('api_result'));*/
+        return view('home');
     }
 }

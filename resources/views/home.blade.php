@@ -56,14 +56,21 @@
         <div class="row text-center p-4">
             <form action="{{ route('weather') }}" method="POST">
                 @csrf
-                <input type="text" name="name" placeholder="Consulta tu ciudad..">
+                <input type="text" name="location" placeholder="Consulta tu ciudad..">
                 <button>Consultar</button>
             </form>
         </div>
     </div>
 
-    <h2>
-        {{$api_result['current']['temperature']}}
+<h2 class="text-center">
+@isset($api_result)
+    {{$api_result['location']['name']}}, {{$api_result['location']['country']}} 
+    <br>
+    {{$api_result['current']['temperature']}} °C
+    <br>
+    <img src="{{$api_result['current']['weather_icons'][0]}}" width="120" alt="" loading="lazy">
+    
+@endisset
 </h2>
 
     <!-- Footer -->
