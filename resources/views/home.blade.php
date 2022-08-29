@@ -54,12 +54,17 @@
     <div style="background-color: #ADCED6">
         <h3 class="text-center" style="margin-top:100px;">Consulta el clima de tu ciudad</h3>
         <div class="row text-center p-4">
-            <form action="POST" action="">
+            <form action="{{ route('weather') }}" method="POST">
+                @csrf
                 <input type="text" name="name" placeholder="Consulta tu ciudad..">
                 <button>Consultar</button>
             </form>
         </div>
     </div>
+
+    <h2>
+        {{$api_result['current']['temperature']}}
+</h2>
 
     <!-- Footer -->
     <footer class="container-fluid bg-main" style="margin-top:100px;">
@@ -86,7 +91,6 @@
 </html>
 
 
-            {{$api_result['current']['temperature']}}
        
 
 
