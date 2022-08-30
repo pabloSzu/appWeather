@@ -13,7 +13,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img src="{{asset('images/logo.png')}}" width="120" alt="" loading="lazy">
+    <img src="{{asset('images/logo.png')}}" width="120" alt="" loading="lazy" style="position: relative;  left: 100px;  display: block;">
     <ul class="navbar-nav ms-auto">
         <!-- Authentication Links -->
         @guest
@@ -63,17 +63,17 @@
     </div>
 
  
-    <div style="margin-top:70px;">
+    <div style="margin-top:70px; background-color:#F1E5D5; padding:1%;">
     @isset($consulta_ciudad)   
     <h2 class="text-center">
         {{$consulta_ciudad['location']['name']}} 
         <br>
         {{$consulta_ciudad['current']['temperature']}} °C
         <br>
-        <img src="{{$consulta_ciudad['current']['weather_icons'][0]}}" width="120" alt="" loading="lazy">
+        <img src="{{$consulta_ciudad['current']['weather_icons'][0]}}" width="120" alt="" loading="lazy" style="border-radius:150px;">
     </h2>
     @endisset
-
+    </div>
     
   
     @if (session('mensaje'))  
@@ -81,7 +81,6 @@
         {{session('mensaje')}}
     </div>
     @endif
-    </div>
 
 
     @isset($id)   

@@ -26,7 +26,7 @@ class WeatherController extends Controller
 
         //Si no existe consulto la API
         $queryString = http_build_query([
-          'access_key' => '92148faafe9093cec9c22987653f9910',
+          'access_key' => '28e9c1e5db7b3455657e9b8cdf4aae6b',
           'query' => $location,
         ]);
         
