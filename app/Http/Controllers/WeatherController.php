@@ -23,6 +23,12 @@ class WeatherController extends Controller
         
         $api_result = json_decode($json, true);
 
-        return view('home', compact('api_result'));
+        if(isset($api_result["success"])){
+            $error = "No existe la ciudad";
+            return view('home', compact('error'));
+        }else{
+            return view('home', compact('api_result'));
+        }
+
     }
 }

@@ -62,22 +62,32 @@
         </div>
     </div>
 
-<h2 class="text-center">
-@isset($api_result)
-    {{$api_result['location']['name']}}, {{$api_result['location']['country']}} 
-    <br>
-    {{$api_result['current']['temperature']}} °C
-    <br>
-    <img src="{{$api_result['current']['weather_icons'][0]}}" width="120" alt="" loading="lazy">
-    
-@endisset
-</h2>
+ 
+    <div style="margin-top:70px;">
+    @isset($api_result)   
+    <h2 class="text-center">
+        {{$api_result['location']['name']}}, {{$api_result['location']['country']}} 
+        <br>
+        {{$api_result['current']['temperature']}} °C
+        <br>
+        <img src="{{$api_result['current']['weather_icons'][0]}}" width="120" alt="" loading="lazy">
+    </h2>
+    @endisset
+
+  
+    @isset($error)  
+    <h2 class="text-center">
+        {{$error}}
+    </h2>
+    @endisset
+    </div>
+
 
     <!-- Footer -->
-    <footer class="container-fluid bg-main" style="margin-top:100px;">
+    <footer class="container-fluid bg-main" style="position:absolute; bottom:30px;">
         <div class="row text-center p-4">
             <div class="mb-3">
-                <img src="{{asset('images/logo.png')}}" alt="YouDevs logo" width="120" id="logofooter">
+                <img src="{{asset('images/logo.png')}}" alt="YouDevs logo" width="50" id="logofooter">
             </div>
             <div id="col-md-10">
                 <a href="https://github.com/pabloSzu">
