@@ -13,7 +13,7 @@ class WeatherController extends Controller
         $ciudades = DB::select('SELECT * FROM ciudad WHERE nombre LIKE ?', [$location]);
 
         //Si existe el nombre de la ciudad, lo busco de la base de datos
-        if(isset($ciudades[0]->nombre)){
+        if(isset($ciudades[0]->nombre) ){
 
             $consulta_ciudad['location']['name'] = $ciudades[0]->nombre;
             $consulta_ciudad['current']['temperature'] = $ciudades[0]->temperatura;
@@ -45,7 +45,8 @@ class WeatherController extends Controller
             DB::table('ciudad')->insert([
                 'nombre' =>  $consulta_ciudad['location']['name'],
                 'temperatura' =>  $consulta_ciudad['current']['temperature'],
-                'imagen' =>  $consulta_ciudad['current']['weather_icons'][0]
+                'imagen' =>  $consulta_ciudad['current']['weather_icons'][0],
+
             ]);
 
             return view('home', compact('consulta_ciudad'));
