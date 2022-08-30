@@ -64,24 +64,30 @@
 
  
     <div style="margin-top:70px;">
-    @isset($api_result)   
+    @isset($consulta_ciudad)   
     <h2 class="text-center">
-        {{$api_result['location']['name']}}, {{$api_result['location']['country']}} 
+        {{$consulta_ciudad['location']['name']}} 
         <br>
-        {{$api_result['current']['temperature']}} °C
+        {{$consulta_ciudad['current']['temperature']}} °C
         <br>
-        <img src="{{$api_result['current']['weather_icons'][0]}}" width="120" alt="" loading="lazy">
+        <img src="{{$consulta_ciudad['current']['weather_icons'][0]}}" width="120" alt="" loading="lazy">
     </h2>
     @endisset
 
+    
   
-    @isset($error)  
-    <h2 class="text-center">
-        {{$error}}
-    </h2>
-    @endisset
+    @if (session('mensaje'))  
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+    </div>
+    @endif
     </div>
 
+
+    @isset($id)   
+        <h1>{{$id}}</h1>
+    @endisset
+    
 
     <!-- Footer -->
     <footer class="container-fluid bg-main" style="position:absolute; bottom:30px;">
